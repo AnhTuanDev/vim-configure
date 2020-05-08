@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/home/anhtuan/Development/documents/webPortfolio'
+let g:netrw_dirhist_0='/home/anhtuan/Development/Laravel/tuanblog/public/assets/plugins/bootstrap-select'
+let g:netrw_dirhist_9='/home/anhtuan/Development/Laravel/tuanblog/resources/views/Blog/components'
+let g:netrw_dirhist_8='/home/anhtuan/Development/code_note/javascript'
+let g:netrw_dirhist_7='/home/anhtuan/Development/code_note'
+let g:netrw_dirhist_6='/home/anhtuan/Development/Laravel/tuanblog/resources/views/Backend/category'
+let g:netrw_dirhist_5='/home/anhtuan/Development/Laravel/tuanblog/database/migrations'
+let g:netrw_dirhist_4='/home/anhtuan/Development/Laravel/tuanblog/resources/js/plugins'
+let g:netrw_dirhist_3='/home/anhtuan/Development/Laravel/tuanblog/resources/views/components/blog'
+let g:netrw_dirhist_2='/home/anhtuan/Development/Laravel/tuanblog/resources/js'
