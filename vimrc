@@ -52,6 +52,11 @@ nmap <leader>tb :tabe ./
 nmap <leader>fth :set filetype=html <CR>
 nmap <leader>ftp :set filetype=php <CR>
 nmap <leader>ftj :set filetype=javascript<CR>
+"
+"move current line to up
+nmap <leader>mk :m . -2<CR> ==
+"move current line to down
+nmap <leader>mj :m . 1<CR> ==
 
 "______ netrw _______
 let g:netrw_liststyle = 3
@@ -97,6 +102,7 @@ let g:airline#extensions#tabline#show_tab_nr = 0       " disable tab numbers
 let g:airline#extensions#tabline#show_tab_type = 0     " disables the weird ornage arrow on the tabline
 
 "____identation____
+let g:indentLine_enabled = 0
 nmap <leader>id :IndentLinesToggle<CR>
 "let g:indentLine_setColors = 0
 "let g:indentLine_color_term = 239
