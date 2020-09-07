@@ -78,6 +78,11 @@ nmap <leader>ftj :set filetype=javascript<CR>
 nmap <leader>reh :resize 
 nmap <leader>rev :vertical resize 
 
+"move current line to up
+nmap <leader>mk :m . -2<CR> ==
+"move current line to down
+nmap <leader>mj :m . 1<CR> ==
+
 "______ netrw _______
 let g:netrw_liststyle = 3
 "Loại bỏ các biểu ngữ
