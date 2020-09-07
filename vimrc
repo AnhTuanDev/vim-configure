@@ -1,7 +1,11 @@
 "eee-- vim ------
-syntax enable
+"call pathogen#infect()
+"syntax enable
 syntax on
 filetype plugin indent on
+
+
+set encoding=UTF-8
 "set laststatus=2
 
 "Credit joshdick
@@ -41,9 +45,27 @@ set shiftwidth=2
 set nowrap
 " set default number
 set number
+
+"TextEdit có thể không thành công nếu ẩn không được đặt.
+set hidden
+
+"Cung cấp thêm không gian để hiển thị tin nhắn.
+set cmdheight=2
+
+"delays and poor user experience.
+set updatetime=300
+
+" Dart-vim-plugin config.
+"let g:dart_style_guide = 2
+let g:dart_format_on_save = 1
+
+
 " _____Set map key ______
 " _______________________
 let mapleader=" "
+
+"Coc.vim.
+nmap <leader>flc :CocList --input=flutter commands <CR>
 
 nmap <leader>nu :set number! <CR>
 
@@ -72,6 +94,10 @@ nmap <leader>hc :History: <CR>
 nmap <leader>hs :History/ <CR>
 nmap <leader>tg :Tags 
 nmap <leader>tb :tabe 
+nmap <leader>ft :Filetypes <CR>
+nmap <leader>li :Lines <CR> 
+nmap <leader>bli :BLines <CR> 
+
 
 let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.4, 'yoffset': 1, 'border': 'horizontal' } }
 
@@ -108,7 +134,7 @@ nmap <leader>id :IndentLinesToggle<CR>
 let g:indentLine_char = '┊'
 
 "emit auto tag html
-let g:user_emmet_leader_key='<C-z>'
+"let g:user_emmet_leader_key='<C-z>'
 
 "Lightline
 let g:lightline = {
@@ -116,3 +142,29 @@ let g:lightline = {
       \ }
 "translate-shell
 "let g:trans_bin = 
+"
+
+"NERDTree.
+nmap <C-n> :NERDTreeToggle <CR>
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") && v:this_session == "" | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let NERDTreeQuitOnOpen = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+                \ 'Modified'  :'✹',
+                \ 'Staged'    :'✚',
+                \ 'Untracked' :'✭',
+                \ 'Renamed'   :'➜',
+                \ 'Unmerged'  :'═',
+                \ 'Deleted'   :'✖',
+                \ 'Dirty'     :'✗',
+                \ 'Ignored'   :'☒',
+                \ 'Clean'     :'✔︎',
+                \ 'Unknown'   :'?',
+                \ }
+
+let g:NERDTreeGitStatusUseNerdFonts = 1 
+

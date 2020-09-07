@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =8
+let g:netrw_dirhist_8='/home/anhtuandev/.vim/pack/plugins/start'
+let g:netrw_dirhist_7='/home/anhtuandev/.config/coc/extensions/node_modules/coc-flutter'
+let g:netrw_dirhist_6='/home/anhtuandev/Dev/Flutter/myApp/lib'
+let g:netrw_dirhist_5='/home/anhtuandev/Dev/Flutter/myApp'
+let g:netrw_dirhist_4='/home/anhtuandev/Dev/Flutter/myApp/lib'
+let g:netrw_dirhist_3='/home/anhtuandev/Dev/Flutter/myApp'
+let g:netrw_dirhist_2='/home/anhtuandev/Dev/Flutter/myApp/lib'
+let g:netrw_dirhist_1='/home/anhtuandev/Dev/Flutter/myApp'
+let g:netrw_dirhist_0='/home/anhtuandev/Dev/Flutter/myApp/lib'
+let g:netrw_dirhist_9='/home/anhtuandev/Dev/Flutter/myApp'
