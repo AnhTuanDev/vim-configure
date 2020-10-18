@@ -8,6 +8,14 @@ filetype plugin indent on
 set encoding=UTF-8
 "set laststatus=2
 
+"set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 11
+
+"let g:webdevicons_enable = 1
+"let g:webdevicons_enable_nerdtree = 1
+"let g:webdevicons_enable_airline_tabline = 1
+"let g:webdevicons_enable_airline_statusline = 1
+
+
 "Credit joshdick
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
@@ -173,3 +181,6 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
 
 let g:NERDTreeGitStatusUseNerdFonts = 1 
 
+"Vim vue
+"
+let g:vue_pre_processors = 'detect_on_enter'

@@ -9,6 +9,13 @@ git clone https://github.com/itchyny/lightline.vim.git
 
 git clone https://github.com/echuraev/translate-shell.vim.git
 
+git clone https://github.com/preservim/nerdtree.git
+git clone git clone https://github.com/posva/vim-vue.git
+
+git clone https://github.com/tomtom/tcomment_vim.git
+
+git clone https://github.com/ryanoasis/vim-devicons.git
+
 # for vim8
 mkdir -p ~/.vim/pack/coc/start
 cd ~/.vim/pack/coc/start
