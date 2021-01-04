@@ -91,6 +91,11 @@ nmap <leader>mk :m . -2<CR> ==
 "move current line to down
 nmap <leader>mj :m . 1<CR> ==
 
+"move current tab to 1
+noremap <A-Left>  :-tabmove<cr>
+"move current tab back 1
+noremap <A-Right> :+tabmove<cr>
+
 "______ netrw _______
 let g:netrw_liststyle = 3
 "Loại bỏ các biểu ngữ
