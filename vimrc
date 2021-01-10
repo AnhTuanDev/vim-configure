@@ -6,14 +6,15 @@ filetype plugin indent on
 
 
 set encoding=UTF-8
-"set laststatus=2
+
+set laststatus=2
 
 "set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 11
 
-"let g:webdevicons_enable = 1
-"let g:webdevicons_enable_nerdtree = 1
-"let g:webdevicons_enable_airline_tabline = 1
-"let g:webdevicons_enable_airline_statusline = 1
+let g:webdevicons_enable = 1
+let g:webdevicons_enable_nerdtree = 1
+let g:webdevicons_enable_airline_tabline = 1
+let g:webdevicons_enable_airline_statusline = 1
 
 
 "Credit joshdick
@@ -44,10 +45,10 @@ set expandtab
 
 let mapleader = " "
 " show existing tab with 2 spaces width
-set tabstop=2
-set softtabstop=2
+set tabstop=4
+set softtabstop=4
 " when indenting with '>', use 2 spaces width
-set shiftwidth=2
+set shiftwidth=4
 
 " set default no wrap
 set nowrap
@@ -72,9 +73,6 @@ let g:dart_format_on_save = 1
 " _______________________
 let mapleader=" "
 
-"Coc.vim.
-nmap <leader>flc :CocList --input=flutter commands <CR>
-
 nmap <leader>nu :set number! <CR>
 
 nmap <leader>wr :set wrap! <CR>
@@ -82,9 +80,6 @@ nmap <leader>wr :set wrap! <CR>
 nmap <leader>fth :set filetype=html <CR>
 nmap <leader>ftp :set filetype=php <CR>
 nmap <leader>ftj :set filetype=javascript<CR>
-
-nmap <leader>reh :resize 
-nmap <leader>rev :vertical resize 
 
 "move current line to up
 nmap <leader>mk :m . -2<CR> ==
@@ -97,10 +92,10 @@ noremap <A-Left>  :-tabmove<cr>
 noremap <A-Right> :+tabmove<cr>
 
 "______ netrw _______
-let g:netrw_liststyle = 3
+"let g:netrw_liststyle = 3
 "Loại bỏ các biểu ngữ
 let g:netrw_banner = 0
-let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+,\(^\|\s\s\)ntuser\.\S\+'
+"let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+,\(^\|\s\s\)ntuser\.\S\+'
 autocmd FileType netrw set nolist
 
 "---- FZF config ----
@@ -110,11 +105,12 @@ nmap <leader>ff :Files <CR>
 nmap <leader>hh :History <CR>
 nmap <leader>hc :History: <CR>
 nmap <leader>hs :History/ <CR>
-nmap <leader>tg :Tags 
 nmap <leader>tb :tabe 
 nmap <leader>ft :Filetypes <CR>
 nmap <leader>li :Lines <CR> 
 nmap <leader>bli :BLines <CR> 
+nmap <leader>tg :Tags 
+nmap <leader>ag :Ag 
 
 
 let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.4, 'yoffset': 1, 'border': 'horizontal' } }
@@ -167,6 +163,8 @@ nmap <C-n> :NERDTreeToggle <CR>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") && v:this_session == "" | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let g:NERDTreeWinSize=20
+"let g:Tlist_WinWidth=20
 let NERDTreeQuitOnOpen = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1

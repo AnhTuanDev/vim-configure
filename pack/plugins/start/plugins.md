@@ -16,7 +16,6 @@ git clone https://github.com/tomtom/tcomment_vim.git
 
 git clone https://github.com/ryanoasis/vim-devicons.git
 
-# for vim8
-mkdir -p ~/.vim/pack/coc/start
-cd ~/.vim/pack/coc/start
-curl --fail -L https://github.com/neoclide/coc.nvim/archive/release.tar.gz|tar xzfv -
+Seach resource function
+apt-get install silversearcher-ag
+
