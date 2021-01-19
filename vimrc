@@ -91,6 +91,10 @@ noremap <A-Left>  :-tabmove<cr>
 "move current tab back 1
 noremap <A-Right> :+tabmove<cr>
 
+" max - min table.
+" Ctrl-w _<CR>
+" Ctrl-w =<CR>
+
 "______ netrw _______
 "let g:netrw_liststyle = 3
 "Loại bỏ các biểu ngữ
@@ -109,9 +113,15 @@ nmap <leader>tb :tabe
 nmap <leader>ft :Filetypes <CR>
 nmap <leader>li :Lines <CR> 
 nmap <leader>bli :BLines <CR> 
-nmap <leader>tg :Tags 
+"nmap <leader>tg :Tags 
 nmap <leader>ag :Ag 
 
+" Gitgutter
+"nmap <leader>git :GitGutterToggle<CR>
+
+"Phan biet mau cho the.
+let g:rainbow_active = 0
+nmap <leader>rb :RainbowToggle <CR>
 
 let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.4, 'yoffset': 1, 'border': 'horizontal' } }
 
@@ -122,23 +132,22 @@ let g:fzf_preview_window = 'right:50%'
 
 "--------Plugin-------
 "Airline
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 1           " enable airline tabline                                                           
 let g:airline_solarized_bg='dark'
 set laststatus=2
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 "custom top tabline
-let g:airline#extensions#tabline#enabled = 1           " enable airline tabline                                                           
 let g:airline#extensions#tabline#show_close_button = 0 " remove 'X' at the end of the tabline                                            
 let g:airline#extensions#tabline#tabs_label = ''       " can put text here like BUFFERS to denote buffers (I clear it so nothing is shown)
 let g:airline#extensions#tabline#buffers_label = ''    " can put text here like TABS to denote tabs (I clear it so nothing is shown)      
 let g:airline#extensions#tabline#fnamemod = ':t'       " disable file paths in the tab                                                    
 "let g:airline#extensions#tabline#show_tab_count = 0    " dont show tab numbers on the right                                                           
-let g:airline#extensions#tabline#show_buffers = 0      " dont show buffers in the tabline                                                 
+"let g:airline#extensions#tabline#show_buffers = 0      " dont show buffers in the tabline                                                 
 let g:airline#extensions#tabline#tab_min_count = 2     " minimum of 2 tabs needed to display the tabline                                  
-let g:airline#extensions#tabline#show_splits = 0       " disables the buffer name that displays on the right of the tabline               
-let g:airline#extensions#tabline#show_tab_nr = 0       " disable tab numbers                                                              
-let g:airline#extensions#tabline#show_tab_type = 0     " disables the weird ornage arrow on the tabline
+"let g:airline#extensions#tabline#show_splits = 0       " disables the buffer name that displays on the right of the tabline               
+"let g:airline#extensions#tabline#show_tab_nr = 0       " disable tab numbers                                                              
+"let g:airline#extensions#tabline#show_tab_type = 0     " disables the weird ornage arrow on the tabline
 
 "____identation____
 nmap <leader>id :IndentLinesToggle<CR>
@@ -168,22 +177,26 @@ let g:NERDTreeWinSize=20
 let NERDTreeQuitOnOpen = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
-
-let g:NERDTreeGitStatusIndicatorMapCustom = {
-                \ 'Modified'  :'✹',
-                \ 'Staged'    :'✚',
-                \ 'Untracked' :'✭',
-                \ 'Renamed'   :'➜',
-                \ 'Unmerged'  :'═',
-                \ 'Deleted'   :'✖',
-                \ 'Dirty'     :'✗',
-                \ 'Ignored'   :'☒',
-                \ 'Clean'     :'✔︎',
-                \ 'Unknown'   :'?',
-                \ }
+"
+" let g:NERDTreeGitStatusIndicatorMapCustom = {
+"                 \ 'Modified'  :'✹',
+"                 \ 'Staged'    :'✚',
+"                 \ 'Untracked' :'✭',
+"                 \ 'Renamed'   :'➜',
+"                 \ 'Unmerged'  :'═',
+"                 \ 'Deleted'   :'✖',
+"                 \ 'Dirty'     :'✗',
+"                 \ 'Ignored'   :'☒',
+"                 \ 'Clean'     :'✔︎',
+"                 \ 'Unknown'   :'?',
+"                 \ }
 
 let g:NERDTreeGitStatusUseNerdFonts = 1 
 
+"vim-vue-plugin
+let g:vim_vue_plugin_load_full_syntax = 1
+
 "Vim vue
 "
-let g:vue_pre_processors = 'detect_on_enter'
+"let g:vue_pre_processors = 'detect_on_enter'
+"
