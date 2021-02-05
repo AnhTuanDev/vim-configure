@@ -4,6 +4,9 @@
 syntax on
 filetype plugin indent on
 
+" _____Set map key ______
+" _______________________
+let mapleader=" "
 
 set encoding=UTF-8
 
@@ -16,11 +19,19 @@ let g:webdevicons_enable_nerdtree = 1
 let g:webdevicons_enable_airline_tabline = 1
 let g:webdevicons_enable_airline_statusline = 1
 
+" Search.
+function! Search()
+    let txt1 = input('Find: ')
+    "call inputsave()
+    let txt2 = input('Replace: ')
+    exe '%s/' . txt1 . '/' . txt2 . '/gc'
+    "call inputrestore()
+    "call FindAndReplaceAll(txt1, txt2)
+endfunction
+" Call function Search.
+nmap <leader>rp :call Search()<CR>
 
-"Credit joshdick
-"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
-"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
-"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
+
 if (empty($TMUX))
   if (has("nvim"))
   "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
@@ -68,67 +79,68 @@ set updatetime=300
 "let g:dart_style_guide = 2
 let g:dart_format_on_save = 1
 
-
-" _____Set map key ______
-" _______________________
-let mapleader=" "
-
-nmap <leader>nu :set number! <CR>
-
-nmap <leader>wr :set wrap! <CR>
-
-nmap <leader>fth :set filetype=html <CR>
-nmap <leader>ftp :set filetype=php <CR>
-nmap <leader>ftj :set filetype=javascript<CR>
-
+"---- FZF config ----
+set rtp+=~/.fzf
+nmap    <leader>bb  :Buffers <CR>
+nmap    <leader>ff  :Files <CR>
+nmap    <leader>hh  :History <CR>
+nmap    <leader>hc  :History: <CR>
+nmap    <leader>hs  :History/ <CR>
+nmap    <leader>tb  :tabe 
+nmap    <leader>ft  :Filetypes <CR>
+nmap    <leader>li  :Lines <CR> 
+nmap    <leader>bli :BLines <CR> 
+"nmap  <leader>tg :Tags 
+nmap    <leader>ag  :Ag 
+nmap    <leader>nu  :set number! <CR>
+nmap    <leader>wr  :set wrap! <CR>
+nmap    <leader>fth :set filetype=html <CR>
+nmap    <leader>ftp :set filetype=php <CR>
+nmap    <leader>ftj :set filetype=javascript<CR>
+nmap    <leader>ftb :set filetype=blade<CR>
 "move current line to up
-nmap <leader>mk :m . -2<CR> ==
+nmap    <leader>mk  :m . -2<CR> ==
 "move current line to down
-nmap <leader>mj :m . 1<CR> ==
+nmap    <leader>mj  :m . 1<CR> ==
+
+" Laravel plugin.
+nmap    <leader>at  :Artisan 
 
 "move current tab to 1
-noremap <A-Left>  :-tabmove<cr>
+noremap <A-Left>    :-tabmove<cr>
 "move current tab back 1
-noremap <A-Right> :+tabmove<cr>
+noremap <A-Right>   :+tabmove<cr>
 
-" max - min table.
-" Ctrl-w _<CR>
-" Ctrl-w =<CR>
+"Vim emmet.
+let g:user_emmet_leader_key='<C-Z>'
+
+
+
 
 "______ netrw _______
 "let g:netrw_liststyle = 3
 "Loại bỏ các biểu ngữ
-let g:netrw_banner = 0
+"let g:netrw_banner = 0
 "let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+,\(^\|\s\s\)ntuser\.\S\+'
-autocmd FileType netrw set nolist
+"autocmd FileType netrw set nolist
 
-"---- FZF config ----
-set rtp+=~/.fzf
-nmap <leader>bb :Buffers <CR>
-nmap <leader>ff :Files <CR>
-nmap <leader>hh :History <CR>
-nmap <leader>hc :History: <CR>
-nmap <leader>hs :History/ <CR>
-nmap <leader>tb :tabe 
-nmap <leader>ft :Filetypes <CR>
-nmap <leader>li :Lines <CR> 
-nmap <leader>bli :BLines <CR> 
-"nmap <leader>tg :Tags 
-nmap <leader>ag :Ag 
+" Auto set fileType.
+augroup EnableSyntaxHighlighting
+    autocmd BufRead,BufNewFile,BufEnter *.blade.php set filetype=blade
+    autocmd BufRead,BufNewFile,BufEnter *.php set filetype=php
+    autocmd BufRead,BufNewFile,BufEnter *.vue set filetype=vue
+augroup END
 
-" Gitgutter
-"nmap <leader>git :GitGutterToggle<CR>
-
-"Phan biet mau cho the.
-let g:rainbow_active = 0
-nmap <leader>rb :RainbowToggle <CR>
 
 let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.4, 'yoffset': 1, 'border': 'horizontal' } }
-
 " Empty value to disable preview window altogether
 "let g:fzf_preview_window = ''
 " Always enable preview window on the right with 60% width
 let g:fzf_preview_window = 'right:50%'
+
+"Phan biet mau cho the.
+let g:rainbow_active = 0
+nmap <leader>rb :RainbowToggle <CR>
 
 "--------Plugin-------
 "Airline
@@ -139,14 +151,14 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 "custom top tabline
 let g:airline#extensions#tabline#show_close_button = 0 " remove 'X' at the end of the tabline                                            
-let g:airline#extensions#tabline#tabs_label = ''       " can put text here like BUFFERS to denote buffers (I clear it so nothing is shown)
+let g:airline#extensions#tabline#tabs_label = 'ATD'       " can put text here like BUFFERS to denote buffers (I clear it so nothing is shown)
 let g:airline#extensions#tabline#buffers_label = ''    " can put text here like TABS to denote tabs (I clear it so nothing is shown)      
 let g:airline#extensions#tabline#fnamemod = ':t'       " disable file paths in the tab                                                    
 "let g:airline#extensions#tabline#show_tab_count = 0    " dont show tab numbers on the right                                                           
-"let g:airline#extensions#tabline#show_buffers = 0      " dont show buffers in the tabline                                                 
-let g:airline#extensions#tabline#tab_min_count = 2     " minimum of 2 tabs needed to display the tabline                                  
-"let g:airline#extensions#tabline#show_splits = 0       " disables the buffer name that displays on the right of the tabline               
-"let g:airline#extensions#tabline#show_tab_nr = 0       " disable tab numbers                                                              
+let g:airline#extensions#tabline#show_buffers = 0      " dont show buffers in the tabline                                                 
+let g:airline#extensions#tabline#tab_min_count = 1     " minimum of 1 tabs needed to display the tabline                                  
+let g:airline#extensions#tabline#show_splits = 0       " disables the buffer name that displays on the right of the tabline               
+let g:airline#extensions#tabline#show_tab_nr = 0       " disable tab numbers                                                              
 "let g:airline#extensions#tabline#show_tab_type = 0     " disables the weird ornage arrow on the tabline
 
 "____identation____
@@ -163,10 +175,7 @@ let g:indentLine_char = '┊'
 let g:lightline = {
       \ 'colorscheme': 'one',
       \ }
-"translate-shell
-"let g:trans_bin = 
 "
-
 "NERDTree.
 nmap <C-n> :NERDTreeToggle <CR>
 autocmd StdinReadPre * let s:std_in=1
@@ -177,26 +186,8 @@ let g:NERDTreeWinSize=20
 let NERDTreeQuitOnOpen = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
-"
-" let g:NERDTreeGitStatusIndicatorMapCustom = {
-"                 \ 'Modified'  :'✹',
-"                 \ 'Staged'    :'✚',
-"                 \ 'Untracked' :'✭',
-"                 \ 'Renamed'   :'➜',
-"                 \ 'Unmerged'  :'═',
-"                 \ 'Deleted'   :'✖',
-"                 \ 'Dirty'     :'✗',
-"                 \ 'Ignored'   :'☒',
-"                 \ 'Clean'     :'✔︎',
-"                 \ 'Unknown'   :'?',
-"                 \ }
 
 let g:NERDTreeGitStatusUseNerdFonts = 1 
 
 "vim-vue-plugin
 let g:vim_vue_plugin_load_full_syntax = 1
-
-"Vim vue
-"
-"let g:vue_pre_processors = 'detect_on_enter'
-"

@@ -30,3 +30,6 @@ git clone git://github.com/jwalton512/vim-blade.git
 
 git clone https://tpope.io/vim/fugitive.git
 vim -u NONE -c "helptags fugitive/doc" -c q
+
+--- Chinh sua cap th ---
+git clone https://github.com/tpope/vim-surround.git
